@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('name');
             $table->text('description');
-            $table->string('status');
+            $table->string('status')->default(1);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
