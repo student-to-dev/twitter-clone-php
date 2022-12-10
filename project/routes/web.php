@@ -32,7 +32,8 @@ return view('dashboard');
 
 // Route::prefix('front')->group(function () {
     Route::get('all-posts', [Post::class, 'index'])->name('all-posts')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-    
+    Route::get('new-post', [Post::class, 'create'])->name('new-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+    Route::post('', [Post::class, 'store'])->name('store')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
     
 // });
 
