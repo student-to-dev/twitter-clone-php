@@ -25,6 +25,12 @@ class AdminController extends Controller
             return view('admin.users', compact('users'));
     }
 
+    public function adminDash()
+    {
+            
+            return view('admin.dashboard');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

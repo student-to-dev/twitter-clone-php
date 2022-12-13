@@ -39,7 +39,7 @@ return view('dashboard');
 // });
 
 Route::prefix('admin')->group(function () {
-    Route::get('dashboard', [Admin::class, 'dashboard'])->name('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+    Route::get('dashboard', [Admin::class, 'adminDash'])->name('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
     Route::get('posts', [Admin::class, 'adminPosts'])->name('posts')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
     Route::get('users', [Admin::class, 'adminUsers'])->name('users')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
     

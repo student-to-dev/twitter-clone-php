@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('name');
             $table->text('description');
-            $table->string('status')->default(1);
+            $table->tinyInteger('status')->default(1);
             $table->string('image')->nullable();
             $table->timestamps();
         });
