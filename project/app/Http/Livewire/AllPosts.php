@@ -23,10 +23,10 @@ class AllPosts extends Component
     }
 
     public function loadPosts()
-    {
-        $posts = Post::query()->offset($this->offset)->limit($this->amount)->get();
+    {   
+        $posts = Post::where('status', 1)->offset($this->offset)->limit($this->amount)->get();
         $this->posts = isset($this->posts) ? $this->posts->merge($posts) : $posts;
-
+        
         $this->offset += $this->amount;
 
         $this->showLoadMoreButton = Post::count() > $this->offset;

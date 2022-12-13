@@ -1,16 +1,18 @@
 <div>
     @foreach ($posts as $post)
-        <div class="flex justify-center">
-            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">{{ $post->name }}</h5>
-                <p class="text-gray-700 text-base mb-4">
-                    {{ $post->description }}
-                </p>
-                <p class="text-gray-700 text-base mb-4">
-                    {{ $post->image }}
-                </p>
-            </div>
+    {{-- @if ($post->status != 0) --}}
+    <div class="flex justify-center">
+        <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">{{ $post->name }}</h5>
+            <p class="text-gray-700 text-base mb-4">
+                {{ $post->description }}
+            </p>
+            <p class="text-gray-700 text-base mb-4">
+                {{ $post->image }}
+            </p>
         </div>
+    </div>        
+    {{-- @endif --}}
     @endforeach
     @if ($showLoadMoreButton)
         <button wire:click="loadPosts" type="button"

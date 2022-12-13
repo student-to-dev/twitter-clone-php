@@ -2,18 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class AdminConroller extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function adminPosts()
     {
-        //
+            $posts = Post::paginate(5);
+            return view('admin.posts', compact('posts'));
+    }
+
+    public function adminUsers()
+    {
+            $users = User::paginate(5);
+            return view('admin.users', compact('users'));
     }
 
     /**
