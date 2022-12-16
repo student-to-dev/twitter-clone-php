@@ -3,19 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function adminPosts()
     {
-        $posts = Post::all()->sortByDesc('created_at');
-        return view('front.index', compact('posts'));
+            $posts = Post::paginate(5);
+            return view('admin.posts', compact('posts'));
+    }
+
+    public function adminUsers()
+    {
+            $users = User::paginate(5);
+            return view('admin.users', compact('users'));
+    }
+
+    public function adminDash()
+    {
+            
+            return view('admin.dashboard');
     }
 
     /**
@@ -25,7 +38,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('front.create');
+        //
     }
 
     /**
@@ -36,16 +49,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->route('index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
         //
     }
@@ -53,10 +66,10 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +78,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +89,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
         //
     }
