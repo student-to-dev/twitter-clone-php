@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Admin users') }}
@@ -10,8 +10,8 @@
             {{ $users->links() }}
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 
-                @foreach ($users as $user)users
-                    <div class="flex justify-center">
+                @foreach ($users as $user)
+                    <div class="flex justify-center mt-2">
                         <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
                             <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Name: {{ $user->name }}</h5>
                             <p class="text-gray-700 text-base mb-4">
@@ -36,7 +36,7 @@
         
     </div>
     
-</x-app-layout>
+</x-admin-layout>
 
 
 

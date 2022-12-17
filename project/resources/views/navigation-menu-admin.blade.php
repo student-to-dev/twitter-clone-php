@@ -12,8 +12,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('all-posts') }}" :active="request()->routeIs('all-posts')">
-                        {{ __('All Posts') }}
+                    <x-jet-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
+                        {{ __('All posts') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
+                        {{ __('All users') }}
                     </x-jet-nav-link>
                 </div>
             </div>
