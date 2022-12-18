@@ -64,4 +64,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Post');
     }
+
+    public function redirectByRole() 
+    {
+        return match((int)$this->role) {
+            1 => 'front.index',
+            2 => 'admin.dashboard'
+        };
+    }
 }
