@@ -65,11 +65,15 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Post');
     }
 
-    public function redirectByRole() 
-    {
-        return match((int)$this->role) {
-            1 => 'front.index',
-            2 => 'admin.dashboard'
-        };
-    }
+    //  public function adminRole() 
+    //  {
+    //     if((int)$this->role_id === 2)
+    //     { 
+    //         return true; 
+    //     } 
+    //     else 
+    //     { 
+    //         return false; 
+    //     }
+    //  }
 }
