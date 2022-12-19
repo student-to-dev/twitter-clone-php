@@ -24,6 +24,9 @@
                     <x-jet-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
                         {{ __('ADMIN users') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('leave') }}" :active="request()->routeIs('leave')">
+                        {{ __('LEAVE') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

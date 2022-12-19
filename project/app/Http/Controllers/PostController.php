@@ -83,4 +83,9 @@ class PostController extends Controller
     {
         //
     }
+
+    public function toUserLogout()
+    {
+        return view('front.logout');
+    }
 }
