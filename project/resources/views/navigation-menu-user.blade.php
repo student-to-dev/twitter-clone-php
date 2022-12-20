@@ -1,26 +1,26 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-[#1F2C3C] border-b border-gray-600 pb-2 sticky top-0">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between h-12">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('all-posts') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="{{ asset('storage/logo.png') }}" alt="" class="block h-12 w-auto">
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('all-posts') }}" :active="request()->routeIs('all-posts')">
-                        {{ __('All Posts') }}
-                    </x-jet-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('log-out') }}" :active="request()->routeIs('log-out')">
-                        {{ __('LEAVE') }}
-                    </x-jet-nav-link>
-                </div>
+                
+            </div>
+            <!-- Navigation Links -->
+            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex max-w-max items-center">
+                <x-jet-nav-link class="text-gray-100 hover:text-[#29A8DF] hover:border-b-[#29A8DF]" href="{{ route('all-posts') }}" :active="request()->routeIs('all-posts')">
+                    {{ __('All Posts') }}
+                </x-jet-nav-link>
+            
+                <x-jet-nav-link class="text-gray-100 hover:text-[#29A8DF] hover:border-b-[#29A8DF]" href="{{ route('log-out') }}" :active="request()->routeIs('log-out')">
+                    {{ __('LEAVE') }}
+                </x-jet-nav-link>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

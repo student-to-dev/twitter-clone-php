@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('all-posts') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="{{ asset('storage/logo.png') }}" alt="" class="block h-12 w-auto">
                     </a>
                 </div>
 
