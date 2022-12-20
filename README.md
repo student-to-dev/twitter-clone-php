@@ -21,3 +21,6 @@
 - individualaus vartotojo peržiūros puslapis
 - post'ų sąrašas
 - individualaus post'o peržiūros puslapis
+
+### Back:
+- Laravel
