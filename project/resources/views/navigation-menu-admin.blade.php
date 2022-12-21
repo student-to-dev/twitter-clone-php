@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
+                <!-- Logo --> 
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('all-posts') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
@@ -13,7 +13,19 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('all-posts') }}" :active="request()->routeIs('all-posts')">
-                        {{ __('All Posts') }}
+                        {{ __('All FRONT posts') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
+                        {{ __('ADMIN posts') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
+                        {{ __('ADMIN users') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('leave') }}" :active="request()->routeIs('leave')">
+                        {{ __('LEAVE') }}
                     </x-jet-nav-link>
                 </div>
             </div>

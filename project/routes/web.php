@@ -16,33 +16,35 @@ use App\Http\Controllers\AdminController as Admin;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Post::class, 'home'])->name('home');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-return view('dashboard');
-    })->name('dashboard');
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+// return view('dashboard');
+//     })->name('dashboard');
     
-});
+//});
 
 // Route::prefix('front')->group(function () {
     Route::get('all-posts', [Post::class, 'index'])->name('all-posts')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
     Route::get('new-post', [Post::class, 'create'])->name('new-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
     Route::post('', [Post::class, 'store'])->name('store')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-    
+    Route::get('log-out', [Post::class, 'toUserLogout'])->name('log-out')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+
 // });
 
+
 Route::prefix('admin')->group(function () {
-    Route::get('dashboard', [Admin::class, 'adminDash'])->name('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-    Route::get('posts', [Admin::class, 'adminPosts'])->name('posts')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-    Route::get('users', [Admin::class, 'adminUsers'])->name('users')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-    
+    Route::get('dashboard', [Admin::class, 'adminDash'])->name('dashboard')->middleware(['auth:sanctum', 'user.role:admin', config('jetstream.auth_session'), 'verified']);
+    Route::get('posts', [Admin::class, 'adminPosts'])->name('posts')->middleware(['auth:sanctum', 'user.role:admin', config('jetstream.auth_session'), 'verified']);
+    Route::get('users', [Admin::class, 'adminUsers'])->name('users')->middleware(['auth:sanctum', 'user.role:admin', config('jetstream.auth_session'), 'verified']);
+    Route::get('leave', [Admin::class, 'toAdminLogout'])->name('leave')->middleware(['auth:sanctum', 'user.role:admin', config('jetstream.auth_session'), 'verified']);
+
 });
 
 
