@@ -24,7 +24,7 @@ class AllPosts extends Component
 
     public function loadPosts()
     {   
-        $posts = Post::where('status', 1)->offset($this->offset)->limit($this->amount)->get();
+        $posts = Post::where('status', 1)->offset($this->offset)->limit($this->amount)->orderBy('created_at', 'DESC')->get();
         $this->posts = isset($this->posts) ? $this->posts->merge($posts) : $posts;
         
         $this->offset += $this->amount;

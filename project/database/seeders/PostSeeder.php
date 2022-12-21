@@ -25,7 +25,7 @@ class PostSeeder extends Seeder
                 'description' => str_random(100),
                 'status' => 1,
                 'image' => 'this is image place',
-                
+                'user_id' => 1,
             ]);
         }
     
