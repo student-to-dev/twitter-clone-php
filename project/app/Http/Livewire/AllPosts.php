@@ -9,7 +9,7 @@ use App\Models\Post;
 
 class AllPosts extends Component
 {
-    public int $amount = 3;
+    public int $amount = 10;
 
     public int $offset = 0;
 

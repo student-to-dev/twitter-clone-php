@@ -28,8 +28,8 @@
                 @if (Route::has('login'))
                     <div class="flex space-x-2 justify-center">
                         @auth
-                            <a href="{{ url('/dashboard') }}"
-                                class="inline-block px-6 py-2.5 bg-white text-black-700 font-medium text-s leading-tight rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out w-32 text-center font-bold">Dashboard</a>
+                            <a href="{{ route('all-posts') }}"
+                                class="inline-block px-6 py-2.5 bg-white text-black-700 font-medium text-s leading-tight rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out w-32 text-center font-bold">Go</a>
                         @else
                             <a href="{{ route('login') }}"
                                 class="inline-block px-6 py-2.5 bg-white text-black-700 font-medium text-s leading-tight rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out w-32 text-center font-bold">Login</a>
