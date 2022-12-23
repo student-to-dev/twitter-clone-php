@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -45,9 +46,19 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    // public function show(int $postId)
+    // {
+
+    //     $post = Post::where('id', $postId)->first();
+        
+    //     return view('front.show', compact('post'));
+    // }
+    
+    public function show($id)
     {
-        //
+        return view('front.show', [
+            'post' => Post::findOrFail($id)
+        ]);
     }
 
     /**

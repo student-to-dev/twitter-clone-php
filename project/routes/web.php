@@ -35,6 +35,7 @@ Route::get('/', [Post::class, 'home'])->name('home');
     Route::get('new-post', [Post::class, 'create'])->name('new-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
     Route::post('', [Post::class, 'store'])->name('store')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
     Route::get('log-out', [Post::class, 'toUserLogout'])->name('log-out')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+    Route::get('show/{id}', [Post::class, 'show'])->name('show-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
 
 // });
 
