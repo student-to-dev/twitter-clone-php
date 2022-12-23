@@ -22,9 +22,9 @@ class NewPost extends Component
     public $photo;
 
     public $rules = [
-        'description' => 'min:10|max:255|required',
+        'description' => 'required|min:3|max:255',
         'user_id' => 'required',
-        'photo' => 'image|max:1024'
+        'photo' => 'nullable|image|max:1024'
     ];
 
     public function render()
@@ -39,8 +39,16 @@ class NewPost extends Component
 
     public function save(Request $request)
     {
-        $this->user_id = auth()->id();                            
-        $filename = $this->photo->store('photos1');
+        
+        
+        $this->user_id = auth()->id(); 
+        if ($this->photo == null) {
+            $filename = null;
+        } else {
+            $filename = $this->photo->store('photos1');
+        }
+                                
+        $this->validate();
         Post::create([
             'user_id' => $this->user_id,
             'description' => $this->description,
@@ -50,7 +58,7 @@ class NewPost extends Component
         $this->messageText = 'Tweeted';
         $this->user_id = '';
         $this->description = '';
-        // $this->photo->store('storage');
+        $this->photo = '';
 
         return redirect()->to('/all-posts');
     }

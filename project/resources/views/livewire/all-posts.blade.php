@@ -7,7 +7,7 @@
                 {{ $post->description }}
             </p>
             
-                <img src="{{ asset("../storage/app/$post->image") }}" alt="" width="150">
+                <img src="{{ asset("../storage/app/$post->image") }}" alt="" width="100%">
                 
             
         </div>

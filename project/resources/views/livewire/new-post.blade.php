@@ -7,18 +7,7 @@
                 {{ $messageText }}
             </div>
         @endif
-        {{-- <div>
-            <label class="block font-medium text-sm text-gray-700" for="name">
-                Product name
-            </label>
-            <input wire:model="name" type="text"
-                   class="mt-2 text-sm sm:text-base pl-2 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" />
-            @error('name')
-            <div class="text-sm text-red-500 ml-1">
-                {{ $message }}
-            </div>
-            @enderror
-        </div> --}}
+        
         <div class="mt-4">
             <label class="block font-medium text-sm text-gray-100" for="description">
                 Add description
@@ -32,7 +21,7 @@
                 </div>
             @enderror
         </div>
-        <div class="mt-4 sm:flex-wrap sm:items-center flex items-center">
+        <div class="mt-4 flex items-center">
             <label class="block font-medium text-sm text-gray-100 py-2" for="photo">
             <input wire:model="photo" type="file"
                 class="block w-full text-sm text-gray-500
@@ -43,8 +32,13 @@
                           hover:file:bg-gray-100 cursor-pointer
                         " />
             </label>
+            @error('photo')
+            <div class="text-sm text-red-500 ml-1">
+                {{ $message }}
+            </div>
+        @enderror
             <button type="submit"
-                class="inline-flex items-center px-4 py-2 bg-[#29a8df] border border-[#29a8df] rounded-full font-semibold text-xs text-white uppercase tracking-widest hover:bg-[#29a8df] active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 sm:w-full">
+                class="block w-[50%] px-4 py-2 bg-[#29a8df] border border-[#29a8df] rounded-full font-semibold text-sm text-white uppercase">
                 Tweet
             </button>
         </div>
