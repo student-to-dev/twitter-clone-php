@@ -8,12 +8,14 @@
             </div>
         @endif
         
-        <div class="mt-4">
+        <div>
             <label class="block font-medium text-sm text-gray-100" for="description">
-                Add description
-            </label>
+            
             <textarea wire:model="description"
-                class="mt-2 mb-0 text-sm sm:text-base pl-2 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"></textarea>
+                class="mt-2 mb-0 text-sm sm:text-base pl-2 pr-4 rounded-lg border w-full py-2 focus:outline-none focus:border-[#29a8df] bg-[#253243] text-gray-100 placeholder:italic placeholder:text-gray-300 border-0" 
+                placeholder="What's happening?" rows="1">
+            </textarea>
+            </label>
             <input type="hidden" name="user_id" wire:model="user_id">
             @error('description')
                 <div class="text-sm text-red-500 ml-1">
@@ -36,7 +38,7 @@
             <div class="text-sm text-red-500 ml-1">
                 {{ $message }}
             </div>
-        @enderror
+            @enderror
             <button type="submit"
                 class="block w-[50%] px-4 py-2 bg-[#29a8df] border border-[#29a8df] rounded-full font-semibold text-sm text-white uppercase">
                 Tweet
