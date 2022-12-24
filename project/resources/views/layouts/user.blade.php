@@ -22,7 +22,9 @@
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">
+        @if (!(Request::is('log-out')))
         @include('navigation-menu-user')
+        @endif
 
         <!-- Page Heading -->
         @if (isset($header))
