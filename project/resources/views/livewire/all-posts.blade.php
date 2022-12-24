@@ -6,9 +6,12 @@
             <a href="{{ route('show-post', $post) }}"><p class="text-gray-100 text-xs mb-4 break-words bg-[#253243] p-3 rounded-md">
                 {{ $post->description }}
             </p></a>
+            @if ($post->image)
             <a href="{{ asset("../storage/app/$post->image") }}">
                 <img class="rounded-lg" src="{{ asset("../storage/app/$post->image") }}" alt="#" width="100%">
             </a>
+            @endif
+            
         </div>
     </div>        
     @endforeach
