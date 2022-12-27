@@ -4,25 +4,16 @@
         <div class="flex w-32 flex-col space-y-2 p-2" style="height: 90.5vh">
             
                 <!-- Logo -->
-                
+                <div>
                     <a href="{{ route('all-posts') }}">
                         <img src="{{ asset('storage/logo.png') }}" alt="" class="flex items-center space-x-1 px-2 py-3 w-[65px]">
                     </a>
                 
 
-                    <span class="inline-flex rounded-md">
-                        <button type="button"
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                    <span class="inline-flex items-center px-3 py-2 text-sm leading-4 font-extrabold text-gray-700 italic">
                             Hello {{ Auth::user()->name }}
-
-                            {{-- <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd" />
-                            </svg> --}}
-                        </button>
                     </span>
+                </div>
                 <!-- Navigation Links -->
                 
                     <x-jet-nav-link class="flex items-center space-x-1 px-2 py-3" href="{{ route('all-posts') }}" :active="request()->routeIs('all-posts')">
@@ -30,16 +21,20 @@
                     </x-jet-nav-link>
 
                     <x-jet-nav-link class="flex items-center space-x-1 px-2 py-3" href="{{ route('posts') }}" :active="request()->routeIs('posts')">
-                        {{ __('ADMIN posts') }}
+                        {{ __('ALL posts') }}
                     </x-jet-nav-link>
                 
                 
                     <x-jet-nav-link class="flex items-center space-x-1 px-2 py-3" href="{{ route('users') }}" :active="request()->routeIs('users')">
-                        {{ __('ADMIN users') }}
+                        {{ __('ALL users') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link class="flex items-center space-x-1 px-2 py-3" href="{{ route('leave') }}" :active="request()->routeIs('leave')">
                         {{ __('LEAVE') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link class="flex items-center space-x-1 px-2 py-5 text-gray-700" href="{{ route('profile.show') }}">
+                        {{ __('My Profile') }}
                     </x-jet-nav-link>
                 
             
@@ -49,7 +44,7 @@
                 
 
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
+                {{-- <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -88,16 +83,16 @@
                             <div class="border-t border-gray-100"></div>
 
                             <!-- Authentication -->
-                            {{-- <form method="POST" action="{{ route('logout') }}" x-data>
+                            <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
                                     {{ __('Log Out') }}
                                 </x-jet-dropdown-link>
-                            </form> --}}
+                            </form>
                         </x-slot>
                     </x-jet-dropdown>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Hamburger -->

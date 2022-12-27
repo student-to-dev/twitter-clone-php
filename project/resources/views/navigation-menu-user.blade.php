@@ -14,11 +14,11 @@
             </div>
             <!-- Navigation Links -->
             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex max-w-max items-center">
-                <x-jet-nav-link class="text-gray-100 hover:text-[#29A8DF] hover:border-b-[#29A8DF]" href="{{ route('all-posts') }}" :active="request()->routeIs('all-posts')">
+                <x-jet-nav-link class="text-gray-100 hover:text-[#29A8DF] hover:border-b-[#29A8DF] font-bold" href="{{ route('all-posts') }}" :active="request()->routeIs('all-posts')">
                     {{ __('All Posts') }}
                 </x-jet-nav-link>
             
-                <x-jet-nav-link class="text-gray-100 hover:text-[#29A8DF] hover:border-b-[#29A8DF]" href="{{ route('log-out') }}" :active="request()->routeIs('log-out')">
+                <x-jet-nav-link class="text-gray-100 hover:text-[#29A8DF] hover:border-b-[#29A8DF] font-bold" href="{{ route('log-out') }}" :active="request()->routeIs('log-out')">
                     {{ __('LEAVE') }}
                 </x-jet-nav-link>
             </div>
