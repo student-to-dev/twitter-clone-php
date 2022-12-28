@@ -45,9 +45,9 @@ class AllPosts extends Component
     //         'post' => Post::findOrFail($id)
     //     ]);
     // }
-    public function show(Post $post, User $user)
+    public function show(Post $post)
 {
-    return view('front.show', compact('post', 'user'));
+    return view('front.show', compact('post'));
 }
 
 }
