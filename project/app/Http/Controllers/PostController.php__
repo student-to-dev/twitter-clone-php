@@ -15,8 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all()->sortByDesc('created_at');
-        return view('front.index', compact('posts'));
+     //   return view('front.index');
     }
 
     /**
@@ -26,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('front.create');
+       // return view('front.create');
     }
 
     /**
@@ -37,7 +36,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->route('index');
+      //  return redirect()->route('index');
     }
 
     /**
@@ -54,12 +53,12 @@ class PostController extends Controller
     //     return view('front.show', compact('post'));
     // }
     
-    public function show($id)
-    {
-        return view('front.show', [
-            'post' => Post::findOrFail($id)
-        ]);
-    }
+    // public function show($id)
+    // {
+    //     return view('front.show', [
+    //         'post' => Post::findOrFail($id)
+    //     ]);
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -96,13 +95,13 @@ class PostController extends Controller
     }
 
 
-    public function home()
-    {
-        return view('welcome');
-    }
+    // public function home()
+    // {
+    //     return view('welcome');
+    // }
 
-    public function toUserLogout()
-    {
-        return view('front.logout');
-    }
+    // public function toUserLogout()
+    // {
+    //     return view('front.logout');
+    // }
 }
