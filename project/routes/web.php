@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController as Post;
+// use App\Http\Controllers\PostController as Post;
 use App\Http\Controllers\AdminController as Admin;
 use App\Http\Livewire\AllPosts as AllPosts;
 
