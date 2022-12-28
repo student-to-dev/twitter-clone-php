@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use App\Models\Post;
+use App\Models\User;
 
 
 class AllPosts extends Component
@@ -20,6 +21,7 @@ class AllPosts extends Component
 
     public function mount() {
         $this->loadPosts();
+        return view('front.index');
     }
 
     public function loadPosts()
@@ -30,9 +32,22 @@ class AllPosts extends Component
         $this->offset += $this->amount;
 
         $this->showLoadMoreButton = Post::count() > $this->offset;
+
     }
      public function render()
     {
         return view('livewire.all-posts');
     }
+
+    // public function show($id)
+    // {
+    //     return view('front.show', [
+    //         'post' => Post::findOrFail($id)
+    //     ]);
+    // }
+    public function show(Post $post, User $user)
+{
+    return view('front.show', compact('post', 'user'));
+}
+
 }

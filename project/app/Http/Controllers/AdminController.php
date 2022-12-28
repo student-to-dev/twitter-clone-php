@@ -27,13 +27,16 @@ class AdminController extends Controller
 
     public function adminDash()
     {
-            return view('admin.dashboard');
+       
+           return view('admin.dashboard');
+       
     }
 
     public function toAdminLogout()
     {
         return view('admin.logout');
     }
+
     /**
      * Show the form for creating a new resource.
      *

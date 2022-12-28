@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController as Post;
 use App\Http\Controllers\AdminController as Admin;
+use App\Http\Livewire\AllPosts as AllPosts;
 
 
 /*
@@ -16,7 +17,7 @@ use App\Http\Controllers\AdminController as Admin;
 |
 */
 
-Route::get('/', [Post::class, 'home'])->name('home');
+Route::view('/', 'welcome')->name('home');
 
 
 // Route::middleware([
@@ -31,11 +32,12 @@ Route::get('/', [Post::class, 'home'])->name('home');
 //});
 
 // Route::prefix('front')->group(function () {
-    Route::get('all-posts', [Post::class, 'index'])->name('all-posts')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-    Route::get('new-post', [Post::class, 'create'])->name('new-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-    Route::post('', [Post::class, 'store'])->name('store')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-    Route::get('log-out', [Post::class, 'toUserLogout'])->name('log-out')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-    Route::get('show/{id}', [Post::class, 'show'])->name('show-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+    Route::get('all-posts', [AllPosts::class, 'mount'])->name('all-posts')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+   // Route::get('new-post', [Post::class, 'create'])->name('new-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+  //  Route::post('', [Post::class, 'store'])->name('store')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+  // Route::get('log-out', [Post::class, 'toUserLogout'])->name('log-out')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+  Route::view('log-out', 'front.logout')->name('log-out')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+  Route::get('show/{post}', [AllPosts::class, 'show'])->name('show-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
 
 // });
 
