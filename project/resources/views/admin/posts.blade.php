@@ -5,7 +5,7 @@
         </h2>
     </x-slot> --}}
     
-    <div class="py-12">
+    <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @include('admin.stats')
 
@@ -13,15 +13,17 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
                 @foreach ($posts as $post)
-                    <div class="flex justify-center">
-                        <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">{{ $post->name }}</h5>
-                            <p class="text-gray-700 text-base mb-4">
+                    <div class="flex justify-center mb-2 rounded-md">
+                        <div class="block p-6 rounded-lg shadow-lg bg-white max-w-xl sm:min-w-[50%]">
+                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">{{ $post->user->name }}</h5>
+                            <p class="text-gray-700 text-sm mb-4 p-3 break-words">
                                 {{ $post->description }}
                             </p>
-                            <p class="text-gray-700 text-base mb-4">
-                                {{ $post->image }}
-                            </p>
+                            @if ($post->image)
+            <a href="{{ asset("../storage/app/$post->image") }}">
+                <img class="rounded-lg w-1/3" src="{{ asset("../storage/app/$post->image") }}" alt="#">
+            </a>
+            @endif
                             <p class="text-gray-700 text-base mb-4">
                                status: {{ $post->status }}
                             </p>
