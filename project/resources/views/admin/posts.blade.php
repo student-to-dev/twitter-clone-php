@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout title="All Posts">
     {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Admin posts') }}
@@ -7,9 +7,11 @@
     
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @include('admin.stats')
+
             {{ $posts->links() }}
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                
+
                 @foreach ($posts as $post)
                     <div class="flex justify-center">
                         <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">

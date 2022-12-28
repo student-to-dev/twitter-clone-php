@@ -20,6 +20,10 @@
                         {{ __('All FRONT posts') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link class="flex items-center space-x-1 px-2 py-3" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('DASHBOARD') }}
+                    </x-jet-nav-link>
+
                     <x-jet-nav-link class="flex items-center space-x-1 px-2 py-3" href="{{ route('posts') }}" :active="request()->routeIs('posts')">
                         {{ __('ALL posts') }}
                     </x-jet-nav-link>

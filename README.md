@@ -17,10 +17,14 @@
 - dashboard'as, kuriame rodom:
 - registruotų vartotojų skaičių
 - parašytų post'ų skaičių
-- vartotojų sąrašas
+
+#### vartotojų sąrašas
 - individualaus vartotojo peržiūros puslapis
-- post'ų sąrašas
+
+#### post'ų sąrašas
 - individualaus post'o peržiūros puslapis
 
-### Back:
+## Stack:
 - Laravel
+- Livewire
+- Tailwind
