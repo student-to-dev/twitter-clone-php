@@ -21,6 +21,10 @@
                             </p>
                             <p class="text-gray-700 text-base mb-4">
                                User role: {{ $user->role }}
+                               <livewire:user-role
+                                        :user="$user"
+                                        role="role"
+                                        key="{{ $user->id }}" />
                             </p>
                             <div class="flex justify-center justify-between">
                                 <p class="text-gray-700 text-base mb-4">
