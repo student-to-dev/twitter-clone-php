@@ -21,6 +21,12 @@
                 <x-jet-nav-link class="text-gray-100 hover:text-[#29A8DF] hover:border-b-[#29A8DF] font-bold" href="{{ route('log-out') }}" :active="request()->routeIs('log-out')">
                     {{ __('LEAVE') }}
                 </x-jet-nav-link>
+                @if (auth()->user()->role === 2)
+                <x-jet-nav-link class="text-gray-100 hover:text-[#29A8DF] hover:border-b-[#29A8DF] font-bold" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('TO ADMIN') }}
+                </x-jet-nav-link>
+                @endif
+                
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6 ">
