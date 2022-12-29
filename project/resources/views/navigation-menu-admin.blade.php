@@ -5,7 +5,7 @@
             
                 <!-- Logo -->
                 <div>
-                    <a href="{{ route('all-posts') }}">
+                    <a href="{{ route('dashboard') }}">
                         <img src="{{ asset('storage/logo.png') }}" alt="" class="flex items-center space-x-1 px-2 py-3 w-[65px]">
                     </a>
                 

@@ -64,11 +64,15 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showUser(User $user)
     {
-        //
+        return view('admin.show-user', compact('user'));
     }
 
+    public function showPost(Post $post)
+    {
+        return view('admin.show-post', compact('post'));
+    }
     /**
      * Show the form for editing the specified resource.
      *

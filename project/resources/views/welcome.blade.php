@@ -12,7 +12,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Styles -->
-   </head>
+</head>
 
 <body class="font-sans antialiased">
     <div
@@ -39,6 +39,11 @@
                                     class="inline-block px-6 py-2.5 bg-white text-black-700 font-medium text-s leading-tight rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out w-32 text-center font-bold">Register</a>
                             @endif
                         @endauth
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="text-red-500 text-sm mt-5 text-center">
+                        {{ session('error') }}
                     </div>
                 @endif
             </div>

@@ -36,7 +36,8 @@ Route::prefix('admin')->group(function () {
     Route::get('posts', [Admin::class, 'adminPosts'])->name('posts')->middleware(['auth:sanctum', 'user.role:admin', config('jetstream.auth_session'), 'verified']);
     Route::get('users', [Admin::class, 'adminUsers'])->name('users')->middleware(['auth:sanctum', 'user.role:admin', config('jetstream.auth_session'), 'verified']);
     Route::get('leave', [Admin::class, 'toAdminLogout'])->name('leave')->middleware(['auth:sanctum', 'user.role:admin', config('jetstream.auth_session'), 'verified']);
-
+    Route::get('show-user/{user}', [Admin::class, 'showUser'])->name('show-user')->middleware(['auth:sanctum', 'user.role:admin', config('jetstream.auth_session'), 'verified']);
+    Route::get('show-post/{post}', [Admin::class, 'showPost'])->name('show-admin-post')->middleware(['auth:sanctum', 'user.role:admin', config('jetstream.auth_session'), 'verified']);
 });
 
 
