@@ -4,7 +4,7 @@
             {{ __('Admin posts') }}
         </h2>
     </x-slot> --}}
-    
+
     <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @include('admin.stats')
@@ -20,24 +20,26 @@
                                 {{ $post->description }}
                             </p>
                             @if ($post->image)
-            <a href="{{ asset("../storage/app/$post->image") }}">
-                <img class="rounded-lg w-1/3" src="{{ asset("../storage/app/$post->image") }}" alt="#">
-            </a>
-            @endif
-                            <p class="text-gray-700 text-base mb-4">
-                               status: {{ $post->status }}
-                            </p>
-                            {{-- <form action="submit" method="post">
-                                @csrf
-                            </form> --}}
+                                <a href="{{ asset("../storage/app/$post->image") }}">
+                                    <img class="rounded-lg w-1/3" src="{{ asset("../storage/app/$post->image") }}"
+                                        alt="#">
+                                </a>
+                            @endif
+                            
+                            <div>
+                                <livewire:statuses
+                                        :model="$post"
+                                        field="status"
+                                        key="{{ $post->id }}" />
+                            </div>
                         </div>
                     </div>
                 @endforeach
-                
+
             </div>
             {{ $posts->links() }}
         </div>
-        
+
     </div>
-    
+
 </x-admin-layout>
