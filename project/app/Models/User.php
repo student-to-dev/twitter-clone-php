@@ -64,16 +64,4 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Post');
     }
-
-    //  public function adminRole() 
-    //  {
-    //     if((int)$this->role_id === 2)
-    //     { 
-    //         return true; 
-    //     } 
-    //     else 
-    //     { 
-    //         return false; 
-    //     }
-    //  }
 }

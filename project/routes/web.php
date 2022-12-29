@@ -20,24 +20,13 @@ use App\Http\Livewire\AllPosts as AllPosts;
 Route::view('/', 'welcome')->name('home');
 
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-// return view('dashboard');
-//     })->name('dashboard');
-    
-//});
-
 // Route::prefix('front')->group(function () {
-    Route::get('all-posts', [AllPosts::class, 'mount'])->name('all-posts')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+    Route::get('all-posts', [AllPosts::class, 'mount'])->name('all-posts')->middleware(['auth:sanctum', 'user.role:user', config('jetstream.auth_session'), 'verified']);
    // Route::get('new-post', [Post::class, 'create'])->name('new-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
   //  Route::post('', [Post::class, 'store'])->name('store')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
   // Route::get('log-out', [Post::class, 'toUserLogout'])->name('log-out')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-  Route::view('log-out', 'front.logout')->name('log-out')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-  Route::get('show/{post}', [AllPosts::class, 'show'])->name('show-post')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
+  Route::view('log-out', 'front.logout')->name('log-out')->middleware(['auth:sanctum', 'user.role:user', config('jetstream.auth_session'), 'verified']);
+  Route::get('show/{post}', [AllPosts::class, 'show'])->name('show-post')->middleware(['auth:sanctum', 'user.role:user', config('jetstream.auth_session'), 'verified']);
 
 // });
 

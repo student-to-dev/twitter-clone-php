@@ -17,17 +17,18 @@ class UserRoleMiddleware
     public function handle(Request $request, Closure $next, $role)
     {
         $userRole = $request->user()->role;
+        $banOrNot = $request->user()->isbanned;
 
         if ($role == 'admin') {
-            if ($userRole !== 2) {
+            if ($userRole !== 2 || $banOrNot === 1) {
                 abort(403);
             }
         }
-        // if ($role == 'admin') {
-        //     if ($userRole === 2) {
-        //         return redirect()->route('dashboard');
-        //     }
-        // }
+         if ($role == 'user') {
+             if ($banOrNot === 1) {
+                return redirect('/');
+             }
+         }
        
 
         return $next($request);

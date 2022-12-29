@@ -15,7 +15,7 @@ class AdminController extends Controller
      */
     public function adminPosts()
     {
-            $posts = Post::paginate(5);
+            $posts = Post::orderBy('created_at', 'DESC')->paginate(10);
             return view('admin.posts', compact('posts'));
     }
 
