@@ -15,7 +15,7 @@ class UserRole extends Component
 
     public function mount()
     {
-        $this->user_role = $this->user->getAttribute($this->role);
+        $this->user_role = $this->user->role;
     }
 
     public function render()
@@ -27,4 +27,5 @@ class UserRole extends Component
     {
         $this->user->setAttribute($this->role, $value)->save();
     }
+    
 }
