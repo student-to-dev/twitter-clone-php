@@ -12,7 +12,7 @@ class Statuses extends Component
 
     public function mount()
     {
-        $this->isOn = (bool) $this->model->field;
+        $this->isOn = (bool) $this->model->getAttribute($this->field);
     }
     public function render()
     {

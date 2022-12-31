@@ -25,7 +25,12 @@ class UserRole extends Component
 
     public function updating($role, $value)
     {
-        $this->user->setAttribute($this->role, $value)->save();
+        if ($value == 1 || $value == 2) {
+            $this->user->setAttribute($this->role, $value)->save();
+        }else {
+            return redirect(request()->header('Referer'));
+        }
+        
     }
     
 }
