@@ -28,6 +28,7 @@ class UserRole extends Component
         if ($value == 1 || $value == 2) {
             $this->user->setAttribute($this->role, $value)->save();
         }else {
+            
             return redirect(request()->header('Referer'));
         }
         
