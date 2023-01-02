@@ -21,7 +21,7 @@
 <body class="font-sans antialiased bg-[#14202E]">
     <x-jet-banner />
 
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-[#14202E]">
         @if (!Request::is('log-out'))
             @include('navigation-menu-user')
         @endif
