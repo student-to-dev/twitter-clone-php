@@ -21,11 +21,10 @@ class PostSeeder extends Seeder
     {
         for ($i=0; $i < 20; $i++) { 
             DB::table('posts')->insert([
-                'name' => str_random(5),
                 'description' => str_random(100),
                 'status' => 1,
-                'image' => 'this is image place',
-                
+                'image' => '../../public/storage/logo.png',
+                'user_id' => 1,
             ]);
         }
     

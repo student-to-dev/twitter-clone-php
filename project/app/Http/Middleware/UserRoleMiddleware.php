@@ -4,6 +4,9 @@ namespace App\Http\Middleware;
 use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 class UserRoleMiddleware
 {
@@ -17,17 +20,22 @@ class UserRoleMiddleware
     public function handle(Request $request, Closure $next, $role)
     {
         $userRole = $request->user()->role;
+        $banOrNot = $request->user()->isbanned;
 
         if ($role == 'admin') {
-            if ($userRole !== 2) {
+            if ($userRole !== 2){
                 abort(403);
             }
         }
-        // if ($role == 'admin') {
-        //     if ($userRole === 2) {
-        //         return redirect()->route('dashboard');
-        //     }
-        // }
+         if ($role == 'user' || $role == 'admin') {
+             if ($banOrNot === 1) {
+                Auth::guard('web')->logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+ 
+                 return redirect('/')->with('error', 'Your Account has been deactivated');
+             }
+         }
        
 
         return $next($request);

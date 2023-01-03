@@ -15,7 +15,7 @@ class AdminController extends Controller
      */
     public function adminPosts()
     {
-            $posts = Post::paginate(5);
+            $posts = Post::orderBy('created_at', 'DESC')->paginate(10);
             return view('admin.posts', compact('posts'));
     }
 
@@ -27,13 +27,16 @@ class AdminController extends Controller
 
     public function adminDash()
     {
-            return view('admin.dashboard');
+       
+           return view('admin.dashboard');
+       
     }
 
     public function toAdminLogout()
     {
         return view('admin.logout');
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -61,11 +64,15 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showUser(User $user)
     {
-        //
+        return view('admin.show-user', compact('user'));
     }
 
+    public function showPost(Post $post)
+    {
+        return view('admin.show-post', compact('post'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
