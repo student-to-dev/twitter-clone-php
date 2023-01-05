@@ -28,8 +28,8 @@
     
                                 <div class="w-[50%] pb-2">
                                     <h5
-                                        class="font-extrabold text-gray-900 text-xl leading-tight font-medium mb-2 flex items-center justify-center">
-                                        User name: {{ $post->user->name }}</h5>
+                                        class="font-extrabold text-gray-900 text-xl leading-tight font-medium mb-2 flex items-center truncate">
+                                        User name: <br> {{ $post->user->name }}</h5>
                                     <span class="flex items-center justify-center font-extrabold">Is it visible:</span>
                                     <livewire:statuses :model="$post" field="status" key="{{ $post->id }}" />
                                         

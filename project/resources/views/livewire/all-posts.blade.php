@@ -8,7 +8,7 @@
             </p></a>
             @if ($post->image)
             <a href="{{ asset("../storage/app/$post->image") }}">
-                <img class="rounded-lg h-full" src="{{ asset("../storage/app/$post->image") }}" alt="#" width="100%">
+                <img class="rounded-lg" src="{{ asset("../storage/app/$post->image") }}" alt="#" width="100%">
             </a>
             @endif
             
