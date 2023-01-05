@@ -26,7 +26,7 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
-        ], ['alpha_dash' => 'The useer name must be a single word'])->validate();
+        ], ['alpha_dash' => 'The user name must be a single word'])->validate();
 
         return User::create([
             'name' => $input['name'],
