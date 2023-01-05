@@ -23,7 +23,7 @@ class NewPost extends Component
 
     public $rules = [
         'description' => 'required|min:3|max:255',
-        'user_id' => 'required',
+     //   'user_id' => 'required',
         'photo' => 'nullable|image|max:1024'
     ];
 

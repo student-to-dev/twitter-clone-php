@@ -13,10 +13,9 @@
             
             <textarea wire:model="description"
                 class="mt-2 mb-0 text-sm sm:text-base pl-2 pr-4 rounded-lg border w-full py-2 focus:outline-none focus:border-[#29a8df] bg-[#253243] text-gray-100 placeholder:italic placeholder:text-gray-300 border-0" 
-                placeholder="What's happening?" rows="1">
+                placeholder="What's happening?" rows="1" required>
             </textarea>
             </label>
-            <input type="hidden" name="user_id" wire:model="user_id">
             @error('description')
                 <div class="text-sm text-red-500 ml-1">
                     {{ $message }}
