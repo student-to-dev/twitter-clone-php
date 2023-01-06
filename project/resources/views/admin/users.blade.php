@@ -14,8 +14,8 @@
 
                 @foreach ($users as $user)
                     <div class="flex justify-center mt-2">
-                        <div class="block p-6 rounded-lg shadow-lg bg-white min-w-[50%]">
-                            <h5 class="text-center text-gray-900 text-base font-extrabold leading-tight font-medium mb-2 border-b-2 pb-2">Name: {{ $user->name }}
+                        <div class="block p-6 rounded-lg shadow-lg bg-white min-w-[50%] max-w-xl">
+                            <h5 class="text-center text-gray-900 text-base font-extrabold leading-tight font-medium mb-2 border-b-2 pb-2 truncate ">Name: <br> {{ $user->name }}
                             </h5>
                             <div class="flex-col justify-center mt-2 mb-4 border-b-2 pb-2">
                                 <p class="text-gray-700 text-base text-center font-extrabold">

@@ -23,8 +23,8 @@ class NewPost extends Component
 
     public $rules = [
         'description' => 'required|min:3|max:255',
-        'user_id' => 'required',
-        'photo' => 'nullable|image|max:1024'
+     //   'user_id' => 'required',
+        'photo' => 'nullable|image|max:512|dimensions:min_width=500,min_height=500,max_width=1500,max_height=1500'
     ];
 
     public function render()
@@ -45,7 +45,7 @@ class NewPost extends Component
         if ($this->photo == null) {
             $filename = null;
         } else {
-            $filename = $this->photo->store('photos1');
+            $filename = $this->photo->store('public');
         }
                                 
         $this->validate();
