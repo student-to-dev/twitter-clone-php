@@ -21,7 +21,7 @@
                             <div class="flex">
                                 @if ($post->image)
                                     <a class="w-[50%]" href="{{ asset("../storage/app/$post->image") }}">
-                                        <img class="rounded-lg w-2/3" src="{{ asset("../storage/app/$post->image") }}"
+                                        <img class="rounded-lg w-2/3 max-h-screen" src="{{ asset("../storage/app/$post->image") }}"
                                             alt="#">
                                     </a>
                                 @endif
